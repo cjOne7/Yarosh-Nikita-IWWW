@@ -1,0 +1,110 @@
+$border-hr-right : 0.5px solid black;
+$border-hr-left : 0.5px solid aqua;
+$color-left : aqua;
+$content-width : 80%;
+
+body {
+    font-family: Century Gothic, sans-serif;
+    font-size: 0.9em;
+    background-color: white;
+}
+
+@mixin row-item($width) {
+    display: table;
+    width: $width;
+    table-layout: fixed;
+    vertical-align: middle;
+}
+
+.row {
+    @include row-item(80%);
+    align-content: center;
+    text-align: left;
+    max-width: 70em;
+    margin: 0 auto;
+    border: 2px solid rgb(83, 76, 76);
+    background-color: darken($color : #fff, $amount : 10);
+}
+
+.column {
+    display: table-cell;
+}
+
+.column.left-lang-item {
+    width: 30%;
+}
+
+.column.right-lang-item {
+    width: 50%;
+}
+
+.lang-row {
+    @include row-item(100%);
+}
+
+.column-item {
+    margin-right: 0.8em;
+}
+
+.column.right {
+    width: 65%;
+    margin: 10px 10px 10px 10px;
+}
+
+.column.left {
+    background-color: #0c5b66;
+    color: $color-left;
+    width: 35%;
+}
+
+.right-container {
+    margin: 0.6em 1em 0.6em 2em;
+}
+
+.left-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.horizontal-rule.left {
+    border: $border-hr-left;
+}
+
+.horizontal-rule.right {
+    border: $border-hr-right;
+}
+
+.list {
+    padding-left: 1.5em;
+}
+
+div {
+    >a {
+        color: $color-left;
+
+        &:hover {
+            color: darken($color : $color-left, $amount : 5);
+        }
+    }
+}
+
+div {
+    >h3 {
+        margin: 0;
+    }
+
+    >h4 {
+        margin: 0;
+        color: #3a78ca;
+    }
+}
+
+
+// @media only screen and (max-width : 767px) {
+//     // TODO finish it
+//     body {
+//         display: none;
+//     }
+// }

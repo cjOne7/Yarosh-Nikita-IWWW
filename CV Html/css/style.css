@@ -1,0 +1,94 @@
+body {
+  font-family: Century Gothic, sans-serif;
+  font-size: 0.9em;
+  background-color: white;
+}
+
+.row {
+  display: table;
+  width: 80%;
+  table-layout: fixed;
+  vertical-align: middle;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: left;
+  max-width: 70em;
+  margin: 0 auto;
+  border: 2px solid #534c4c;
+  background-color: #e6e6e6;
+}
+
+.column {
+  display: table-cell;
+}
+
+.column.left-lang-item {
+  width: 30%;
+}
+
+.column.right-lang-item {
+  width: 50%;
+}
+
+.lang-row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  vertical-align: middle;
+}
+
+.column-item {
+  margin-right: 0.8em;
+}
+
+.column.right {
+  width: 65%;
+  margin: 10px 10px 10px 10px;
+}
+
+.column.left {
+  background-color: #0c5b66;
+  color: aqua;
+  width: 35%;
+}
+
+.right-container {
+  margin: 0.6em 1em 0.6em 2em;
+}
+
+.left-container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.horizontal-rule.left {
+  border: 0.5px solid aqua;
+}
+
+.horizontal-rule.right {
+  border: 0.5px solid black;
+}
+
+.list {
+  padding-left: 1.5em;
+}
+
+div > a {
+  color: aqua;
+}
+
+div > a:hover {
+  color: #00e6e6;
+}
+
+div > h3 {
+  margin: 0;
+}
+
+div > h4 {
+  margin: 0;
+  color: #3a78ca;
+}
+/*# sourceMappingURL=style.css.map */
