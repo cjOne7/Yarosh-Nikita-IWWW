@@ -1,0 +1,205 @@
+//@mixin transitionForBorders {
+//    transition: 1.5s;
+//    transition-delay: 0.3s;
+//    opacity: 0.7;
+//}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Century Gothic", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    overflow-x: hidden;//just mare sure that there is no horizontal scroll bars
+}
+
+//.dws-wrapper {
+//    display: flex;
+//    height: 100vh; //высота экрана
+//    justify-content: center; //выравнивание по горизонтали
+//    align-items: center; //выравнивание по вертикали
+//}
+//
+//.container-image {
+//    width: 75em;
+//    height: 31.25em;
+//    display: flex;
+//    border: 1px solid turquoise;
+//}
+//
+//.img-box {
+//    flex-grow: 1; // разделение между элементами всё пространство контейнера поровно
+//    background-size: 46.875em 31.25em;
+//    background-position: center;
+//    background-repeat: no-repeat;
+//    transition: 1s;
+//    filter: grayscale(1); // фильтр для наложения чёрно-белого эффекта
+//    opacity: 0.8;
+//    position: relative;
+//    overflow: hidden; //скроет, если выходит за рамки блока img-box
+//
+//    // &:last-child {
+//    //     flex-grow: 3;
+//    // }
+//
+//    &:hover {
+//        background-size: 900px 600px;
+//        flex-grow: 5;
+//        filter: grayscale(0);
+//        opacity: 1;
+//
+//        .bor-left-right::after {
+//            @include transitionForBorders();
+//            transform: translateY(-100%);
+//        }
+//
+//        .bor-top-bottom::after {
+//            @include transitionForBorders();
+//            transform: translateX(-100%);
+//        }
+//
+//        .bor-left-right::before {
+//            @include transitionForBorders();
+//            transform: translateY(100%);
+//        }
+//
+//        .bor-top-bottom::before {
+//            @include transitionForBorders();
+//            transform: translateX(100%);
+//        }
+//
+//        .content {
+//            transform: translateY(-10%);
+//            transition-delay: 1s;
+//        }
+//    }
+//}
+//
+//@mixin pseudoBorderPropertes {
+//    content: "";
+//    position: absolute;
+//    background-color: #fff;
+//    opacity: 0.3;
+//    transition: 1s;
+//}
+//
+//@mixin sizes($width, $height) {
+//    width: $width;
+//    height: $height;
+//}
+//
+//@mixin location-top-left($top, $left) {
+//    top: $top;
+//    left: $left;
+//}
+//
+//@mixin location-bottom-right($bottom, $right) {
+//    bottom: $bottom;
+//    right: $right;
+//}
+//
+//.bor-left-right::before {
+//    @include pseudoBorderPropertes();
+//    @include sizes(1px, 100%);
+//    @include location-top-left(0, 10px);
+//}
+//
+//.bor-top-bottom::before {
+//    @include pseudoBorderPropertes();
+//    @include sizes(100%, 1px);
+//    @include location-top-left(10px, 0);
+//}
+//
+//.bor-left-right::after {
+//    @include pseudoBorderPropertes();
+//    @include sizes(1px, 100%);
+//    @include location-bottom-right(0, 10px);
+//}
+//
+//.bor-top-bottom::after {
+//    @include pseudoBorderPropertes();
+//    @include sizes(100%, 1px);
+//    @include location-bottom-right(10px, 0);
+//}
+//
+//.content {
+//    color: beige;
+//    background-color: #000;
+//    opacity: 0.7;
+//    font-size: 14px;
+//    font-family: Century Gothic, sans-serif;
+//    text-align: justify;
+//    width: 70%;
+//    margin: auto;
+//    position: absolute;
+//    bottom: 10px;
+//    right: 10px;
+//    box-sizing: border-box;
+//    padding: 10px 15px;
+//    -webkit-transform: translateY(120%);
+//    -moz-transform: translateY(120%);
+//    -ms-transform: translateY(120%);
+//    transform: translateY(120%);
+//    transition: 1s;
+//
+//    h2 {
+//        text-transform: uppercase;
+//    }
+//
+//    p {
+//        margin: 0;
+//    }
+//}
+
+// @media only screen and (min-width : 1200px) {
+//     .content {
+//         min-width: 95%;
+//     }
+// }
+
+// @media only screen and (min-width : 768px) {
+//     .dws-wrapper {
+//         width: 700px;
+//     }
+
+//     .bor-left-right::before {
+//         @include location-top-left(0, 5px);
+//     }
+
+//     .bor-top-bottom::before {
+//         @include location-top-left(5px, 0);
+//     }
+
+//     .bor-left-right::after {
+//         @include location-bottom-right(0, 5px);
+//     }
+
+//     .bor-top-bottom::after {
+//         @include location-bottom-right(5px, 0);
+//     }
+
+//     .img-box {
+//         background-size: 450px 300px;
+
+//         &:hover {
+//             background-size: 525px 350px;
+//         }
+//     }
+
+//     .content {
+//         height: 250px;
+//         width: 93%;
+//         padding: 10px;
+
+//         h2 {
+//             font-size: 16px;
+//         }
+
+//         p {
+//             font-size: 12px;
+//         }
+//     }
+// }
