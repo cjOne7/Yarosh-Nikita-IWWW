@@ -86,7 +86,6 @@ h1 {
     }
 }
 
-
 #about {
     padding: 40px;
     text-align: center;
@@ -219,7 +218,7 @@ h1 {
     @include location-bottom-right(10px, 0);
 }
 
-.content {
+.img-content {
     color: beige;
     background-color: #000;
     opacity: 0.7;
