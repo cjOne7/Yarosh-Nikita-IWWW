@@ -36,77 +36,75 @@
 	</div>
 </nav>
 
-<div class="bg-animation">
-	<form class="form">
-		<fieldset>
-			<div class="control">
-				<h1>Contact us</h1>
+<form class="form">
+	<fieldset>
+		<div class="control">
+			<h1>Contact us</h1>
+		</div>
+		<div class="control block-cube block-input">
+			<input name="username" placeholder="Name&Surname" type="text" maxlength="60">
+			<div class="bg-top">
+				<div class="bg-inner"></div>
 			</div>
-			<div class="control block-cube block-input">
-				<input name="username" placeholder="Name&Surname" type="text" maxlength="60">
-				<div class="bg-top">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg-right">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg">
-					<div class="bg-inner"></div>
-				</div>
+			<div class="bg-right">
+				<div class="bg-inner"></div>
 			</div>
-			<div class="control block-cube block-input">
-				<input type="email" name="email" id="email" required="required" placeholder="E-mail..." maxlength="255"
-					   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-				<div class="bg-top">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg-right">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg">
-					<div class="bg-inner"></div>
-				</div>
+			<div class="bg">
+				<div class="bg-inner"></div>
 			</div>
-			<div class="control block-cube block-input">
-				<input type="date" name="dateOfBirth" id="dateOfBirth">
-				<div class="bg-top">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg-right">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg">
-					<div class="bg-inner"></div>
-				</div>
+		</div>
+		<div class="control block-cube block-input">
+			<input type="email" name="email" id="email" required="required" placeholder="E-mail..." maxlength="255"
+				   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+			<div class="bg-top">
+				<div class="bg-inner"></div>
 			</div>
-			<div class="control block-cube block-input">
-				<textarea id="about" name="about" maxlength="500" placeholder="Type here..."></textarea>
-				<div class="bg-top">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg-right">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg">
-					<div class="bg-inner"></div>
-				</div>
+			<div class="bg-right">
+				<div class="bg-inner"></div>
 			</div>
-			<div id="remainingChars"></div>
-			<button class="btn block-cube block-cube-hover" type="button">
-				<div class="bg-top">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg-right">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="bg">
-					<div class="bg-inner"></div>
-				</div>
-				<div class="text">Send</div>
-			</button>
-		</fieldset>
-	</form>
-</div>
+			<div class="bg">
+				<div class="bg-inner"></div>
+			</div>
+		</div>
+		<div class="control block-cube block-input">
+			<input type="date" name="dateOfBirth" id="dateOfBirth">
+			<div class="bg-top">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg-right">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg">
+				<div class="bg-inner"></div>
+			</div>
+		</div>
+		<div class="control block-cube block-input">
+			<textarea id="about" name="about" maxlength="500" placeholder="Type here..."></textarea>
+			<div class="bg-top">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg-right">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg">
+				<div class="bg-inner"></div>
+			</div>
+		</div>
+		<div id="remainingChars"></div>
+		<button class="btn block-cube block-cube-hover" type="button">
+			<div class="bg-top">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg-right">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="text">Send</div>
+		</button>
+	</fieldset>
+</form>
 
 <script type="text/javascript">
 	function checkDateOfBirth() {

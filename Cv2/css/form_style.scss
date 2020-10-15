@@ -12,7 +12,7 @@ body {
     animation: bg-animation 10s ease-in-out infinite;
     background-repeat: no-repeat;
     background-size: 400%;
-    height: 100vh;
+    height: 120vh;
 }
 
 h1 {
@@ -226,12 +226,9 @@ textarea {
     }
 }
 
-.bg-animation {
-    
-}
 
-@media only screen and (max-width: 576px) {
-    body {
-        height: 120vh;
-    }
-}
+// @media only screen and (max-width: 576px) {
+//     body {
+//         height: 120vh;
+//     }
+// }

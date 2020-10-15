@@ -32,7 +32,7 @@ body {
           animation: bg-animation 10s ease-in-out infinite;
   background-repeat: no-repeat;
   background-size: 400%;
-  height: 100vh;
+  height: 120vh;
 }
 
 h1 {
@@ -252,12 +252,6 @@ textarea::-webkit-scrollbar-thumb {
   }
   100% {
     background-position: 0 50%;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  body {
-    height: 120vh;
   }
 }
 /*# sourceMappingURL=form_style.css.map */
