@@ -1,4 +1,4 @@
-.navbar.navbar-expand-md li {
+.navbar.navbar-expand-sm li {
   display: inline-block;
   list-style-type: none;
   font-size: 1em;
@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.navbar.navbar-expand-md li:after {
+.navbar.navbar-expand-sm li:after {
   content: "";
   position: absolute;
   bottom: 20%;
@@ -18,7 +18,7 @@
   transition: all ease-in 0.25s;
 }
 
-.navbar.navbar-expand-md li:hover:after {
+.navbar.navbar-expand-sm li:hover:after {
   width: 90%;
 }
 
@@ -32,7 +32,7 @@ body {
           animation: bg-animation 10s ease-in-out infinite;
   background-repeat: no-repeat;
   background-size: 400%;
-  height: 120vh;
+  height: 100vh;
 }
 
 h1 {
@@ -56,7 +56,7 @@ h1 {
   padding: 14px 16px;
   border: 0;
   background: transparent;
-  color: #835959;
+  color: #7a6c6c;
   font-family: monospace, serif;
   letter-spacing: 0.05em;
   font-size: 16px;
@@ -81,6 +81,21 @@ h1 {
   font-weight: bold;
   font-family: monospace;
   font-size: 16px;
+}
+
+.control.block-cube.block-input.checkbox {
+  width: 30px;
+}
+
+.control.block-cube.block-input.checkbox::after {
+  content: "I don't want to specify my age";
+  color: #2a7f91;
+  z-index: 10;
+  position: absolute;
+  top: -10%;
+  left: 150%;
+  width: 300px;
+  text-decoration: underline;
 }
 
 .block-cube {
@@ -116,6 +131,11 @@ h1 {
   background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
 }
 
+.block-cube .bg .bg-inner {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
 .block-cube .bg-right {
   position: absolute;
   background: #020024;
@@ -131,11 +151,6 @@ h1 {
 
 .block-cube .bg-right .bg-inner {
   left: 0;
-}
-
-.block-cube .bg .bg-inner {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 
 .block-cube .bg-inner {
@@ -204,9 +219,6 @@ textarea {
 
 textarea::-webkit-scrollbar {
   width: 5px;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 textarea::-webkit-scrollbar-track {
@@ -221,37 +233,25 @@ textarea::-webkit-scrollbar-thumb {
 
 @-webkit-keyframes bg-animation {
   0% {
-    background-position: 0 50%;
-  }
-  25% {
-    background-position: 50% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 50%;
+    background-position: left;
   }
   100% {
-    background-position: 0 50%;
+    background-position: right;
   }
 }
 
 @keyframes bg-animation {
   0% {
-    background-position: 0 50%;
-  }
-  25% {
-    background-position: 50% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 50%;
+    background-position: left;
   }
   100% {
-    background-position: 0 50%;
+    background-position: right;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body {
+    height: 130vh;
   }
 }
 /*# sourceMappingURL=form_style.css.map */

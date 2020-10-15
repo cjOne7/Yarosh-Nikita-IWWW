@@ -78,6 +78,18 @@
 				<div class="bg-inner"></div>
 			</div>
 		</div>
+		<div class="control block-cube block-input checkbox">
+			<input type="checkbox" onclick="isChecked(this)">
+			<div class="bg-top">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg-right">
+				<div class="bg-inner"></div>
+			</div>
+			<div class="bg">
+				<div class="bg-inner"></div>
+			</div>
+		</div>
 		<div class="control block-cube block-input">
 			<textarea id="about" name="about" maxlength="500" placeholder="Type here..."></textarea>
 			<div class="bg-top">
@@ -123,6 +135,16 @@
 			document.getElementById("remainingChars").innerHTML = "Characters remaining: " + (500 - input.value.length);
 		}
 	};
+
+	function isChecked(checkbox) {
+		const input = document.getElementById("dateOfBirth");
+		console.log(checkbox.checked)
+		if (checkbox.checked){
+			input.disabled = true;
+		} else {
+			input.disabled = false;
+		}
+	}
 </script>
 </body>
 </html>

@@ -12,7 +12,7 @@ body {
     animation: bg-animation 10s ease-in-out infinite;
     background-repeat: no-repeat;
     background-size: 400%;
-    height: 120vh;
+    height: 100vh;
 }
 
 h1 {
@@ -35,7 +35,7 @@ h1 {
             padding: 14px 16px;
             border: 0;
             background: transparent;
-            color: rgb(131, 89, 89);
+            color: rgb(122, 108, 108);
             font-family: monospace, serif;
             letter-spacing: 0.05em;
             font-size: 16px;
@@ -60,6 +60,21 @@ h1 {
         font-weight: bold;
         font-family: monospace;
         font-size: 16px;
+    }
+}
+
+.control.block-cube.block-input.checkbox {
+    width: 30px;
+
+    &::after {
+        content: "I don't want to specify my age";
+        color: rgb(42, 127, 145);
+        z-index: 10;
+        position: absolute;
+        top: -10%;
+        left: 150%;
+        width: 300px;
+        text-decoration: underline;
     }
 }
 
@@ -90,6 +105,10 @@ h1 {
         bottom: 0;
         background: rgb(61, 56, 148);
         background: $bg_gradient;
+
+        .bg-inner {
+            transition: all 0.2s ease-in-out;
+        }
     }
 
     .bg-right {
@@ -105,12 +124,6 @@ h1 {
 
         .bg-inner {
             left: 0;
-        }
-    }
-
-    .bg {
-        .bg-inner {
-            transition: all 0.2s ease-in-out;
         }
     }
 
@@ -188,9 +201,6 @@ textarea {
 
     &::-webkit-scrollbar {
         width: 5px;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
     &::-webkit-scrollbar-track {
@@ -206,29 +216,17 @@ textarea {
 
 @keyframes bg-animation {
     0% {
-        background-position: 0 50%;
-    }
-
-    25% {
-        background-position: 50% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    75% {
-        background-position: 50% 50%;
+        background-position: left;
     }
 
     100% {
-        background-position: 0 50%;
+        background-position: right;
     }
 }
 
 
-// @media only screen and (max-width: 576px) {
-//     body {
-//         height: 120vh;
-//     }
-// }
+@media only screen and (max-width: 576px) {
+    body {
+        height: 130vh;
+    }
+}
