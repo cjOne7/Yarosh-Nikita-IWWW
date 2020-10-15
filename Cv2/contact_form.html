@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+		  integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
+			integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
+			crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="/css/form_style.css">
+	<title>Contact form</title>
+</head>
+<body onload="checkDateOfBirth()">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark px-2" role="navigation">
+	<a class="navbar-brand" href="main_page.html">Games</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="games_genre/hack_and_slash.html">Hack and slash</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="games_genre/mmorpg.html">MMORPG</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="games_genre/shooters.html">Shooters</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="contact_form.html">Contact us</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<div class="bg-animation">
+	<form class="form">
+		<fieldset>
+			<div class="control">
+				<h1>Contact us</h1>
+			</div>
+			<div class="control block-cube block-input">
+				<input name="username" placeholder="Name&Surname" type="text" maxlength="60">
+				<div class="bg-top">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg-right">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg">
+					<div class="bg-inner"></div>
+				</div>
+			</div>
+			<div class="control block-cube block-input">
+				<input type="email" name="email" id="email" required="required" placeholder="E-mail..." maxlength="255"
+					   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+				<div class="bg-top">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg-right">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg">
+					<div class="bg-inner"></div>
+				</div>
+			</div>
+			<div class="control block-cube block-input">
+				<input type="date" name="dateOfBirth" id="dateOfBirth">
+				<div class="bg-top">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg-right">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg">
+					<div class="bg-inner"></div>
+				</div>
+			</div>
+			<div class="control block-cube block-input">
+				<textarea id="about" name="about" maxlength="500" placeholder="Type here..."></textarea>
+				<div class="bg-top">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg-right">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg">
+					<div class="bg-inner"></div>
+				</div>
+			</div>
+			<div id="remainingChars"></div>
+			<button class="btn block-cube block-cube-hover" type="button">
+				<div class="bg-top">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg-right">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="bg">
+					<div class="bg-inner"></div>
+				</div>
+				<div class="text">Send</div>
+			</button>
+		</fieldset>
+	</form>
+</div>
+
+<script type="text/javascript">
+	function checkDateOfBirth() {
+		const currentDate = new Date();
+		const month = currentDate.getMonth() + 1;
+		//build a date format like: yyyy-MM-dd. If month = 7, for correct work date.max must be 07
+		document.getElementById("dateOfBirth").max
+				= `${currentDate.getFullYear()}-${month < 10 ? `0${month}` : month}-${currentDate.getDate()}`;
+	}
+
+	const input = document.getElementById("about");
+	input.oninput = function () {
+		if (input.value === "") {
+			document.getElementById("remainingChars").innerHTML = "";
+		} else {
+			document.getElementById("remainingChars").innerHTML = "Characters remaining: " + (500 - input.value.length);
+		}
+	};
+</script>
+</body>
+</html>

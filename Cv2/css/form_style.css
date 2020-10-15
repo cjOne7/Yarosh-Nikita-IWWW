@@ -1,0 +1,263 @@
+.navbar.navbar-expand-md li {
+  display: inline-block;
+  list-style-type: none;
+  font-size: 1em;
+  color: darkgrey;
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar.navbar-expand-md li:after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 6%;
+  width: 20px;
+  border-bottom: 1px solid darkgrey;
+  -webkit-transition: all ease-in 0.25s;
+  transition: all ease-in 0.25s;
+}
+
+.navbar.navbar-expand-md li:hover:after {
+  width: 90%;
+}
+
+body {
+  color: #fff;
+  font-family: "Century Gothic", sans-serif;
+  letter-spacing: 0.05em;
+  background: #212121;
+  background: linear-gradient(225deg, #1f1e1e 0%, #1b1822 13%, #17162e 35%, #24444e 69%, #1b4047 86%, #212121 100%);
+  -webkit-animation: bg-animation 10s ease-in-out infinite;
+          animation: bg-animation 10s ease-in-out infinite;
+  background-repeat: no-repeat;
+  background-size: 400%;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 23px;
+  text-align: center;
+}
+
+.form {
+  width: 300px;
+  padding: 64px 15px 24px;
+  margin: 0 auto;
+}
+
+.form .control {
+  margin: 0 0 24px;
+}
+
+.form .control input,
+.form .control textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  color: #835959;
+  font-family: monospace, serif;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+}
+
+.form .control input:hover, .form .control input:focus,
+.form .control textarea:hover,
+.form .control textarea:focus {
+  outline: none;
+  border: 0;
+}
+
+.form .btn {
+  width: 100%;
+  display: block;
+  padding: 14px 16px;
+  background: transparent;
+  outline: none;
+  border: 0;
+  color: #fff;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.block-cube {
+  position: relative;
+}
+
+.block-cube .bg-top {
+  position: absolute;
+  height: 10px;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(37%, #340979), color-stop(94%, #00d4ff));
+  background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+  bottom: 100%;
+  left: 5px;
+  right: -5px;
+  -webkit-transform: skew(-45deg, 0);
+          transform: skew(-45deg, 0);
+  margin: 0;
+}
+
+.block-cube .bg-top .bg-inner {
+  bottom: 0;
+}
+
+.block-cube .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #3d3894;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(37%, #340979), color-stop(94%, #00d4ff));
+  background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+}
+
+.block-cube .bg-right {
+  position: absolute;
+  background: #020024;
+  background: #00d4ff;
+  top: -5px;
+  z-index: 0;
+  bottom: 5px;
+  width: 10px;
+  left: 100%;
+  -webkit-transform: skew(0, -45deg);
+          transform: skew(0, -45deg);
+}
+
+.block-cube .bg-right .bg-inner {
+  left: 0;
+}
+
+.block-cube .bg .bg-inner {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.block-cube .bg-inner {
+  background: #212121;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+}
+
+.block-cube .text {
+  position: relative;
+  z-index: 2;
+}
+
+.block-cube.block-input input,
+.block-cube.block-input textarea {
+  position: relative;
+  z-index: 2;
+}
+
+.block-cube.block-input input:focus ~ .bg-right .bg-inner,
+.block-cube.block-input input:focus ~ .bg-top .bg-inner,
+.block-cube.block-input input:focus ~ .bg-inner .bg-inner,
+.block-cube.block-input textarea:focus ~ .bg-right .bg-inner,
+.block-cube.block-input textarea:focus ~ .bg-top .bg-inner,
+.block-cube.block-input textarea:focus ~ .bg-inner .bg-inner {
+  top: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.block-cube.block-input .bg-top,
+.block-cube.block-input .bg-right,
+.block-cube.block-input .bg {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+}
+
+.block-cube.block-input .bg-right .bg-inner,
+.block-cube.block-input .bg-top .bg-inner {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.block-cube.block-input:focus .bg-top,
+.block-cube.block-input:focus .bg-right,
+.block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg-top,
+.block-cube.block-input:hover .bg-right,
+.block-cube.block-input:hover .bg {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
+  top: 100%;
+}
+
+#remainingChars {
+  margin-bottom: 20px;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::-webkit-scrollbar {
+  width: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+textarea::-webkit-scrollbar-track {
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #4d4d4d;
+  border-radius: 10px;
+}
+
+@-webkit-keyframes bg-animation {
+  0% {
+    background-position: 0 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: 0 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body {
+    height: 120vh;
+  }
+}
+/*# sourceMappingURL=form_style.css.map */

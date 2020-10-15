@@ -1,4 +1,5 @@
 @import "mixins";
+@import "navbar_style";
 
 * {
     box-sizing: border-box;
@@ -37,7 +38,6 @@ h1 {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: wheat url(../images/start_blue_neurons.jpg) no-repeat center center/cover;
 
     video {
         min-width: 100%;
@@ -119,8 +119,6 @@ h1 {
     color: beige;
     background-color: #000;
     opacity: 0.7;
-    font-size: 14px;
-    font-family: Century Gothic, sans-serif;
     text-align: justify;
     width: 70%;
     margin: auto;
@@ -210,4 +208,33 @@ h1 {
     @include pseudoBorderPropertes();
     @include sizes(100%, 1px);
     @include location-bottom-right(10px, 0);
+}
+
+.nav {
+    margin: 5px 0;
+    padding: 0;
+
+    li {
+        display: inline-block;
+        list-style-type: none;
+        font-size: 1em;
+        margin: 0 5px/2;
+        color: darkgrey;
+        position: relative;
+        cursor: pointer;
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            border-bottom: 1px solid darkgrey;
+            transition: all ease-in 0.25s;
+        }
+
+        &:hover:after {
+            width: 100%;
+        }
+    }
 }
