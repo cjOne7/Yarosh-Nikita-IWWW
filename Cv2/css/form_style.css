@@ -89,7 +89,7 @@ h1 {
 
 .control.block-cube.block-input.checkbox::after {
   content: "I don't want to specify my age";
-  color: #2a7f91;
+  color: #ddc9c9;
   z-index: 10;
   position: absolute;
   top: -10%;

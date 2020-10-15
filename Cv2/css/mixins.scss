@@ -1,29 +1,29 @@
 @mixin pseudoBorderPropertes {
-    content: "";
-    position: absolute;
-    background-color: #fff;
-    opacity: 0.3;
-    transition: 1s;
+  content          : "";
+  position         : absolute;
+  background-color : #fff;
+  opacity          : 0.3;
+  transition       : 1s;
 }
 
 @mixin sizes($width, $height) {
-    width: $width;
-    height: $height;
+  width  : $width;
+  height : $height;
 }
 
 @mixin location-top-left($top, $left) {
-    top: $top;
-    left: $left;
+  top  : $top;
+  left : $left;
 }
 
 @mixin location-bottom-right($bottom, $right) {
-    bottom: $bottom;
-    right: $right;
+  bottom : $bottom;
+  right  : $right;
 }
 
 
 @mixin transitionForBorders {
-    transition: 1.5s;
-    transition-delay: 0.3s;
-    opacity: 0.7;
+  transition       : 1.5s;
+  transition-delay : 0.3s;
+  opacity          : 0.7;
 }

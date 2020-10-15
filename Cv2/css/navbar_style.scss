@@ -1,24 +1,24 @@
 .navbar.navbar-expand-sm {
-    li {
-        display: inline-block;
-        list-style-type: none;
-        font-size: 1em;
-        color: darkgrey;
-        position: relative;
-        cursor: pointer;
+  li {
+	display         : inline-block;
+	list-style-type : none;
+	font-size       : 1em;
+	color           : darkgrey;
+	position        : relative;
+	cursor          : pointer;
 
-        &:after {
-            content: "";
-            position: absolute;
-            bottom: 20%;
-            left: 6%;
-            width: 20px;
-            border-bottom: 1px solid darkgrey;
-            transition: all ease-in 0.25s;
-        }
+	&:after {
+	  content       : "";
+	  position      : absolute;
+	  bottom        : 20%;
+	  left          : 6%;
+	  width         : 20px;
+	  border-bottom : 1px solid darkgrey;
+	  transition    : all ease-in 0.25s;
+	}
 
-        &:hover:after {
-            width: 90%;
-        }
-    }
+	&:hover:after {
+	  width : 90%;
+	}
+  }
 }
