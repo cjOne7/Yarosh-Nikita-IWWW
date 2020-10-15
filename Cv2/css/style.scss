@@ -1,3 +1,5 @@
+@import "mixins";
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -60,12 +62,8 @@ h1 {
         width: 100%;
         height: 100%;
         background-color: black;
-        opacity: 0.7;
+        opacity: 0.5;
     }
-}
-
-.content {
-    z-index: 1;
 }
 
 .btn {
@@ -103,12 +101,6 @@ h1 {
     }
 }
 
-@mixin transitionForBorders {
-    transition: 1.5s;
-    transition-delay: 0.3s;
-    opacity: 0.7;
-}
-
 .dws-wrapper {
     display: flex;
     justify-content: center; //выравнивание по горизонтали
@@ -121,101 +113,6 @@ h1 {
     height: 500px;
     display: flex;
     border: 1px solid turquoise;
-}
-
-.img-box {
-    flex-grow: 1; // разделение между элементами всё пространство контейнера поровно
-    background-size: 750px 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: 1s;
-    filter: grayscale(1); // фильтр для наложения чёрно-белого эффекта
-    opacity: 0.8;
-    position: relative;
-    overflow: hidden; //скроет, если выходит за рамки блока img-box
-
-    // &:last-child {
-    //     flex-grow: 3;
-    // }
-
-    &:hover {
-        background-size: 900px 600px;
-        flex-grow: 5;
-        filter: grayscale(0);
-        opacity: 1;
-
-        .bor-left-right::after {
-            @include transitionForBorders();
-            transform: translateY(-100%);
-        }
-
-        .bor-top-bottom::after {
-            @include transitionForBorders();
-            transform: translateX(-100%);
-        }
-
-        .bor-left-right::before {
-            @include transitionForBorders();
-            transform: translateY(100%);
-        }
-
-        .bor-top-bottom::before {
-            @include transitionForBorders();
-            transform: translateX(100%);
-        }
-
-        .content {
-            transform: translateY(-10%);
-            transition-delay: 1s;
-        }
-    }
-}
-
-@mixin pseudoBorderPropertes {
-    content: "";
-    position: absolute;
-    background-color: #fff;
-    opacity: 0.3;
-    transition: 1s;
-}
-
-@mixin sizes($width, $height) {
-    width: $width;
-    height: $height;
-}
-
-@mixin location-top-left($top, $left) {
-    top: $top;
-    left: $left;
-}
-
-@mixin location-bottom-right($bottom, $right) {
-    bottom: $bottom;
-    right: $right;
-}
-
-.bor-left-right::before {
-    @include pseudoBorderPropertes();
-    @include sizes(1px, 100%);
-    @include location-top-left(0, 10px);
-}
-
-.bor-top-bottom::before {
-    @include pseudoBorderPropertes();
-    @include sizes(100%, 1px);
-    @include location-top-left(10px, 0);
-}
-
-.bor-left-right::after {
-    @include pseudoBorderPropertes();
-    @include sizes(1px, 100%);
-    @include location-bottom-right(0, 10px);
-}
-
-.bor-top-bottom::after {
-    @include pseudoBorderPropertes();
-    @include sizes(100%, 1px);
-    @include location-bottom-right(10px, 0);
 }
 
 .img-content {
@@ -247,52 +144,70 @@ h1 {
     }
 }
 
-// @media only screen and (min-width : 1200px) {
-//     .content {
-//         min-width: 95%;
-//     }
-// }
+.img-box {
+    flex-grow: 1; // разделение между элементами всё пространство контейнера поровно
+    background-size: 750px 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 1s;
+    filter: grayscale(1); // фильтр для наложения чёрно-белого эффекта
+    opacity: 0.8;
+    position: relative;
+    overflow: hidden; //скроет, если выходит за рамки блока img-box
 
-// @media only screen and (min-width : 768px) {
-//     .dws-wrapper {
-//         width: 700px;
-//     }
+    &:hover {
+        background-size: 900px 600px;
+        flex-grow: 5;
+        filter: grayscale(0);
+        opacity: 1;
 
-//     .bor-left-right::before {
-//         @include location-top-left(0, 5px);
-//     }
+        .bor-left-right::after {
+            @include transitionForBorders();
+            transform: translateY(-100%);
+        }
 
-//     .bor-top-bottom::before {
-//         @include location-top-left(5px, 0);
-//     }
+        .bor-top-bottom::after {
+            @include transitionForBorders();
+            transform: translateX(-100%);
+        }
 
-//     .bor-left-right::after {
-//         @include location-bottom-right(0, 5px);
-//     }
+        .bor-left-right::before {
+            @include transitionForBorders();
+            transform: translateY(100%);
+        }
 
-//     .bor-top-bottom::after {
-//         @include location-bottom-right(5px, 0);
-//     }
+        .bor-top-bottom::before {
+            @include transitionForBorders();
+            transform: translateX(100%);
+        }
 
-//     .img-box {
-//         background-size: 450px 300px;
+        .img-content {
+            transform: translateY(-10%);
+            transition-delay: 1s;
+        }
+    }
+}
 
-//         &:hover {
-//             background-size: 525px 350px;
-//         }
-//     }
+.bor-left-right::before {
+    @include pseudoBorderPropertes();
+    @include sizes(1px, 100%);
+    @include location-top-left(0, 10px);
+}
 
-//     .content {
-//         height: 250px;
-//         width: 93%;
-//         padding: 10px;
+.bor-top-bottom::before {
+    @include pseudoBorderPropertes();
+    @include sizes(100%, 1px);
+    @include location-top-left(10px, 0);
+}
 
-//         h2 {
-//             font-size: 16px;
-//         }
+.bor-left-right::after {
+    @include pseudoBorderPropertes();
+    @include sizes(1px, 100%);
+    @include location-bottom-right(0, 10px);
+}
 
-//         p {
-//             font-size: 12px;
-//         }
-//     }
-// }
+.bor-top-bottom::after {
+    @include pseudoBorderPropertes();
+    @include sizes(100%, 1px);
+    @include location-bottom-right(10px, 0);
+}
