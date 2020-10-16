@@ -237,4 +237,6 @@ textarea {
     body {
         height: 130vh;
     }
+
+    @include navbar-item-underline-576px;
 }
