@@ -1,4 +1,4 @@
-.navbar.navbar-expand-md li {
+.navbar.navbar-expand-sm li {
   display: inline-block;
   list-style-type: none;
   font-size: 1em;
@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.navbar.navbar-expand-md li:after {
+.navbar.navbar-expand-sm li:after {
   content: "";
   position: absolute;
   bottom: 20%;
@@ -18,7 +18,7 @@
   transition: all ease-in 0.25s;
 }
 
-.navbar.navbar-expand-md li:hover:after {
+.navbar.navbar-expand-sm li:hover:after {
   width: 90%;
 }
 
