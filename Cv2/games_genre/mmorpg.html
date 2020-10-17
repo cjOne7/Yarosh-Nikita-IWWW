@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
 		  integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
 			integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
 			crossorigin="anonymous"></script>
+	<!--My css-->
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<!--My JS functions-->
+	<script type="text/javascript" src="../open-img-modal.js"></script>
 	<title>MMORPG</title>
 </head>
 <body>
@@ -44,13 +47,19 @@
 	</div>
 </nav>
 <section class="showcase">
+	<div class="btn">
+		<div class="link-about">
+			<a href="#about">Read More</a>
+		</div>
+	</div>
 	<div class="video-container">
 		<video autoplay muted loop src="../images/bg%20videos/Magical%20Ground.mp4"
 			   poster="../images/bg%20videos/magical%20ground.jpg"></video>
 	</div>
 	<div class="dws-wrapper">
 		<section class="container-image">
-			<div class="img-box" style="background-image: url(../images/tera.jpg);">
+			<div id="tera" class="img-box" style="background-image: url(../images/tera.jpg);"
+				 onclick="onClick(this.id)">
 				<span class="bor-left-right"></span>
 				<span class="bor-top-bottom"></span>
 				<div class="img-content">
@@ -60,7 +69,8 @@
 						nesciunt et eligendi quae? Ea, accusantium.</p>
 				</div>
 			</div>
-			<div class="img-box" style="background-image: url(../images/revelation.jpg);">
+			<div id="revelation" class="img-box" style="background-image: url(../images/revelation.jpg);"
+				 onclick="onClick(this.id)">
 				<span class="bor-left-right"></span>
 				<span class="bor-top-bottom"></span>
 				<div class="img-content">
@@ -70,7 +80,8 @@
 						nesciunt et eligendi quae? Ea, accusantium.</p>
 				</div>
 			</div>
-			<div class="img-box" style="background-image: url(../images/Blade_and_Soul.jpg);">
+			<div id="blade_and_soul" class="img-box" style="background-image: url(../images/Blade_and_Soul.jpg);"
+				 onclick="onClick(this.id)">
 				<span class="bor-left-right"></span>
 				<span class="bor-top-bottom"></span>
 				<div class="img-content">
@@ -82,14 +93,19 @@
 			</div>
 		</section>
 	</div>
-	<div class="btn">
-		<a href="#about">Read More</a>
-	</div>
 </section>
 <section id="about">
 	<h1>About</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A assumenda atque culpa dicta doloribus enim est, eum
 		fugit illo laboriosam maiores nihil numquam perferendis quasi sapiente, sint tempora tempore voluptatem?</p>
 </section>
+
+<div id="modal-block" class="modal" onclick="this.style.display='none'">
+	<span class="close">&times;</span>
+	<div class="modal-content">
+		<img id="img01" width="100%">
+	</div>
+	<div id="caption"></div>
+</div>
 </body>
 </html>

@@ -51,13 +51,6 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
   padding: 0 20px;
   color: #fff;
 }
@@ -95,29 +88,41 @@ h1 {
 }
 
 .btn {
-  position: absolute;
-  bottom: 10%;
-  padding: 10px 30px;
+  padding: 0.625rem 1.875rem;
   background-color: #332b2b;
   color: whitesmoke;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   border: 1px solid #fff;
-  -webkit-transition: all 2s linear;
-  transition: all 2s linear;
+  -webkit-transition: 2s;
+  transition: 2s;
   z-index: 10;
+  width: 15%;
+  margin: 2.8125rem auto 0 auto;
 }
 
-.btn a {
+.btn .link-about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.btn .link-about a {
   text-decoration: none;
-  color: white;
+  color: whitesmoke;
 }
 
 .btn:hover {
   color: whitesmoke;
   -webkit-transition: 1s;
   transition: 1s;
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
   outline: none;
 }
 
@@ -139,10 +144,16 @@ h1 {
 }
 
 .dws-wrapper {
-  position: absolute;
-  top: 5%;
-  left: 10%;
-  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
 }
 
 .container-image {
@@ -306,56 +317,17 @@ h1 {
   right: 0;
 }
 
-@media only screen and (max-width: 576px) {
-  .navbar.navbar-expand-sm li:after {
-    content: "";
-    position: absolute;
-    bottom: 20%;
-    left: 0;
-    width: 20px;
-    border-bottom: 1px solid darkgrey;
-    -webkit-transition: all ease-in 0.25s;
-    transition: all ease-in 0.25s;
-  }
-  .navbar.navbar-expand-sm li:hover::after {
-    width: 100%;
-  }
-}
-
-/* Style the Image Used to Trigger the Modal */
-#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-#myImg:hover {
-  opacity: 0.7;
-}
-
-/* The Modal (background) */
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 12;
-  /* Sit on top */
   padding-top: 100px;
-  /* Location of the box */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/ opacity */
 }
 
 /* Modal Content (Image) */
@@ -366,21 +338,8 @@ h1 {
   max-width: 700px;
 }
 
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
-}
-
 /* Add Animation - Zoom in the Modal */
-.modal-content,
-#caption {
+.modal-content {
   -webkit-animation-name: zoom;
           animation-name: zoom;
   -webkit-animation-duration: 0.6s;
@@ -428,8 +387,39 @@ h1 {
   cursor: pointer;
 }
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1032px) {
+  .btn {
+    min-width: 150px;
+    margin-top: 15px;
+    padding: 10px 30px;
+    white-space: nowrap;
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .navbar.navbar-expand-sm li:after {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 20px;
+    border-bottom: 1px solid darkgrey;
+    -webkit-transition: all ease-in 0.25s;
+    transition: all ease-in 0.25s;
+  }
+  .navbar.navbar-expand-sm li:hover::after {
+    width: 100%;
+  }
+  .btn {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100px;
+    white-space: nowrap;
+    -webkit-transition: none;
+    transition: none;
+  }
   .modal-content {
     width: 100%;
   }
