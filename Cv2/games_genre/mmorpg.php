@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <?php include_once "../header.html" ?>
+    <!--My css-->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!--My JS functions-->
+    <script type="text/javascript" src="../open-img-modal.js"></script>
     <title>MMORPG</title>
 </head>
 <body>

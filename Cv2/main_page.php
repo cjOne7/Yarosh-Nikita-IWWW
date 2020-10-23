@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <?php include_once "header.html" ?>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Main page dedicated games</title>
 </head>
 <body>
