@@ -38,7 +38,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603487320822</updated>
-      <workItem from="1603487321857" duration="1630000" />
+      <workItem from="1603487321857" duration="2148000" />
+      <workItem from="1603489657779" duration="2778000" />
     </task>
     <servers />
   </component>
@@ -46,9 +47,13 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603487916246">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603489951316">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603487916246" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603489951316" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603491894020">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603491894020" />
   </component>
 </project>

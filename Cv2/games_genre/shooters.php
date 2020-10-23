@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include_once "../header.html" ?>
-    <!--My css-->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <!--My JS functions-->
-    <script type="text/javascript" src="../open-img-modal.js"></script>
-    <title>Shooters</title>
-</head>
+<?php
+$style = "/css/style.css";
+$title = "Shooters";
+include_once "../header.php";
+?>
 <body>
 <?php
 include_once "../navbar.html";
@@ -22,44 +17,10 @@ include_once "../navbar.html";
     <div class="video-container">
         <video autoplay muted loop src="../images/bg%20videos/Space%20Sphere%20Gaming.mp4"></video>
     </div>
-    <div class="dws-wrapper">
-        <section class="container-image">
-            <div id="doom" class="img-box" style="background-image: url(../images/doom.png);"
-                 onclick="onClick(this.id)">
-                <span class="bor-left-right"></span>
-                <span class="bor-top-bottom"></span>
-                <div class="img-content">
-                    <h2>Doom</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse voluptas ipsum inventore
-                        voluptatibus unde nihil ducimus tempora beatae atque consectetur natus, odit, minima odio,
-                        nesciunt et eligendi quae? Ea, accusantium.</p>
-                </div>
-            </div>
-            <div id="borderlands_pre" class="img-box"
-                 style="background-image: url(../images/borderlands%20the%20pre%20sequel.jpg);"
-                 onclick="onClick(this.id)">
-                <span class="bor-left-right"></span>
-                <span class="bor-top-bottom"></span>
-                <div class="img-content">
-                    <h2>Borderlands the pre-sequel</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse voluptas ipsum inventore
-                        voluptatibus unde nihil ducimus tempora beatae atque consectetur natus, odit, minima odio,
-                        nesciunt et eligendi quae? Ea, accusantium.</p>
-                </div>
-            </div>
-            <div id="serious_sam4" class="img-box" style="background-image: url(../images/Serious_Sam4.jpg);"
-                 onclick="onClick(this.id)">
-                <span class="bor-left-right"></span>
-                <span class="bor-top-bottom"></span>
-                <div class="img-content">
-                    <h2>Serious Sam 4</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse voluptas ipsum inventore
-                        voluptatibus unde nihil ducimus tempora beatae atque consectetur natus, odit, minima odio,
-                        nesciunt et eligendi quae? Ea, accusantium.</p>
-                </div>
-            </div>
-        </section>
-    </div>
+    <?php
+    $arrLinks = array("../images/doom.png", "../images/borderlands%20the%20pre%20sequel.jpg", "../images/Serious_Sam4.jpg");
+    include_once "../imgbox.php";
+    ?>
 </section>
 <section id="about">
     <h1>About</h1>

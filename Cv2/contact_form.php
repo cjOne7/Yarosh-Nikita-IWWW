@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include_once "header.html" ?>
-    <link rel="stylesheet" type="text/css" href="/css/form_style.css">
-    <title>Contact form</title>
-</head>
+<?php
+$style = "/css/form_style.css";
+$title = "Contact form";
+include_once "header.php";
+?>
 <body onload="checkDateOfBirth()">
 <?php
 include_once "navbar.html";
