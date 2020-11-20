@@ -1,6 +1,6 @@
 <?php session_start() ?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-2" role="navigation">
-    <a class="navbar-brand" href="<?= $_SERVER["PHP_SELF"] ?>">Your logo</a>
+    <a class="navbar-brand" href="<?= $_SERVER["PHP_SELF"] ?>" onclick="event.preventDefault()">Your logo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

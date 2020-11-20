@@ -21,13 +21,14 @@ if ($stmt = $connection->prepare($sqlQuery)) {
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();
     if (isset($result)) {
-        echo "<p>Login: " . $result["login"] . "<br>Role: ";
+        echo "<div>Login: " . $result["login"] . "<br>Role: ";
         include_once "role.php";
         if ($result["role"] == Role::ADMIN) {
-            echo "admin" . "</p>";
+            echo "admin" . "</div>";
         } elseif ($result["role"] == Role::USER) {
-            echo "user" . "</p>";
+            echo "user" . "</div>";
         }
+        echo "<a href='editUser.php'>Edit</a>";
     }
 }
 
