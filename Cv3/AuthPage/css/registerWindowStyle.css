@@ -1,0 +1,70 @@
+body {
+  background-color: #354152;
+}
+
+.container {
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.register-form {
+  box-shadow: 0 0 250px #000;
+  color: #7e8ba3;
+  width: 400px;
+  text-align: center;
+}
+
+.login-mess {
+  margin: 5px;
+  font-size: 1rem;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+svg {
+  margin: 2em 0 3.5em 0;
+}
+
+#logModalBtn {
+  color: #7e8ba3;
+  outline: none;
+  border: 1px solid black;
+  background-color: #354152;
+  border: none;
+  text-decoration: none;
+}
+#logModalBtn:hover {
+  color: #bac1cd;
+  text-decoration: underline;
+}
+
+input {
+  background-color: transparent;
+  width: 80%;
+  margin: 5px;
+  padding: 5px 0;
+  border: 1px solid black;
+  border-radius: 20px;
+  text-align: center;
+  color: #7e8ba3;
+}
+input::placeholder {
+  color: #63718b;
+}
+input:focus {
+  outline: none !important;
+}
+input[type=submit] {
+  cursor: not-allowed;
+  background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
+  color: #fff;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+}
+
+/*# sourceMappingURL=registerWindowStyle.css.map */
