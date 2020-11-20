@@ -14,7 +14,6 @@ $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-//$login = $_SESSION["login"];
 $login = $_COOKIE["authLoginProfile"];
 $sqlQuery = "SELECT * FROM learningphpdb.users WHERE login LIKE ?";
 if ($stmt = $connection->prepare($sqlQuery)) {

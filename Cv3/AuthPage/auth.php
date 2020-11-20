@@ -1,5 +1,4 @@
 <?php
-session_start();
 $enteredLogin = filter_var(trim($_POST["usernameLog"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 $enteredPassword = filter_var(trim($_POST["passwordLog"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 
@@ -17,11 +16,9 @@ if ($stmt = $connection->prepare($sqlQuery)) {
     $role = $result["role"];
     if (isset($hashPwd)) {
         if (password_verify($enteredPassword, $hashPwd)) {
+            setcookie("authRole", $role);
             setcookie("authLogin", $enteredLogin);
             setcookie("authLoginProfile", $enteredLogin);
-            setcookie("authRole", $role);
-//            $_SESSION["role"] = $role;
-//            $_SESSION["login"] = $enteredLogin;
             header("Location: homePage.php");
         } else {
             header('HTTP/1.1 307 Temporary Redirect');

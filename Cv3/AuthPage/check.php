@@ -1,5 +1,4 @@
 <?php
-session_start();
 $enteredLogin = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 $enteredPassword = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 
@@ -33,10 +32,9 @@ if ($stmt = $connection->prepare($sqlQuery)) {
             $role = Role::USER;
             $stmt->execute();
             $stmt->close();
-            setcookie("authLogin", $enteredLogin);
             setcookie("authRole", $role);
-//            $_SESSION["role"] = $role;
-//            $_SESSION["login"] = $enteredLogin;
+            setcookie("authLogin", $enteredLogin);
+            setcookie("authLoginProfile", $enteredLogin);
             header("Location: homePage.php");
         }
     }
