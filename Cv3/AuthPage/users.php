@@ -14,10 +14,12 @@ $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-$sqlQuery = "SELECT * FROM learningphpdb.users WHERE login NOT LIKE ?";
+$sqlQuery = "SELECT * FROM learningphpdb.users WHERE role = ?";
 if ($stmt = $connection->prepare($sqlQuery)) {
-    $stmt->bind_param("s", $login);
-    $login = $_SESSION["login"];
+    $stmt->bind_param("i", $role);
+//    $login = $_SESSION["login"];
+//    $login = $_COOKIE["authLogin"];
+    $role = Role::USER;
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
@@ -25,21 +27,26 @@ if ($stmt = $connection->prepare($sqlQuery)) {
             echo "Login: " . $row["login"] . "<br>Role: ";
             include_once "role.php";
             if ($row["role"] == Role::ADMIN) {
-                echo "admin" . "<br><br>";
+                echo "admin" . "<br>";
             } elseif ($row["role"] == Role::USER) {
                 echo "user" . "<br>";
+                echo "<button name='editBtn' onclick=location.href='editUser.php?user_id=" . $row["user_id"] . "'>Edit</button><br><br>";
+
             }
-            echo "";
         }
     }
 }
 ?>
-<table>
-    <thead>
-    </thead>
-
-    <tbody>
-    </tbody>
-</table>
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Login</th>-->
+<!--        <th>Role</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!---->
+<!--    <tbody>-->
+<!--    </tbody>-->
+<!--</table>-->
 </body>
 </html>

@@ -14,7 +14,8 @@ $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-$login = $_SESSION["login"];
+//$login = $_SESSION["login"];
+$login = $_COOKIE["authLoginProfile"];
 $sqlQuery = "SELECT * FROM learningphpdb.users WHERE login LIKE ?";
 if ($stmt = $connection->prepare($sqlQuery)) {
     $stmt->bind_param("s", $login);
@@ -28,7 +29,7 @@ if ($stmt = $connection->prepare($sqlQuery)) {
         } elseif ($result["role"] == Role::USER) {
             echo "user" . "</div>";
         }
-        echo "<a href='editUser.php'>Edit</a>";
+        echo "<button name='editBtn' onclick=location.href='editUser.php?user_id=" . $result["user_id"] . "'>Edit</button><br><br>";
     }
 }
 

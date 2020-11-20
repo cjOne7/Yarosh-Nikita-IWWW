@@ -17,11 +17,12 @@ if ($stmt = $connection->prepare($sqlQuery)) {
     $role = $result["role"];
     if (isset($hashPwd)) {
         if (password_verify($enteredPassword, $hashPwd)) {
-            $_SESSION["role"] = $role;
-            $_SESSION["login"] = $enteredLogin;
-//            setcookie("login", $enteredLogin);
-//            setcookie("role", $role);
-            header("Location: homepage.php");
+            setcookie("authLogin", $enteredLogin);
+            setcookie("authLoginProfile", $enteredLogin);
+            setcookie("authRole", $role);
+//            $_SESSION["role"] = $role;
+//            $_SESSION["login"] = $enteredLogin;
+            header("Location: homePage.php");
         } else {
             header('HTTP/1.1 307 Temporary Redirect');
             header("Location: index.php?error=wrong_auth_data");

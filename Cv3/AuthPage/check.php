@@ -33,8 +33,10 @@ if ($stmt = $connection->prepare($sqlQuery)) {
             $role = Role::USER;
             $stmt->execute();
             $stmt->close();
-            $_SESSION["login"] = $enteredLogin;
-            $_SESSION["role"] = $role;
+            setcookie("authLogin", $enteredLogin);
+            setcookie("authRole", $role);
+//            $_SESSION["role"] = $role;
+//            $_SESSION["login"] = $enteredLogin;
             header("Location: homePage.php");
         }
     }
