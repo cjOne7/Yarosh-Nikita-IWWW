@@ -1,20 +1,29 @@
 <?php
 session_start();
-if (!isset($_COOKIE["authLoginProfile"])) {
-    header("Location: index.php");
-    exit();
-}
+//if (!isset($_COOKIE["authLoginProfile"])) {
+//    header("Location: index.php");
+//    exit();
+//}
 
 if ($_GET["action"] == "add" && !empty($_GET["id"])) {
     addToCart($_GET["id"]);
-    echo "<a href='myCart.php'>Do you want to check out?</a> or ";
-    echo "<a href='products.php'>Do you want to continue shopping?</a>";
+    echo "Do you want to <a href='myCart.php'>check out</a> or ";
+    echo "<a href='products.php'> continue shopping?</a>";
 //    header("Location: myCart.php");
 }
 
 if ($_GET["action"] == "remove" && !empty($_GET["id"])) {
     removeFromCart($_GET["id"]);
-//    header("Location: /");
+    echo "Do you want to <a href='myCart.php'>check out</a> or ";
+    echo "<a href='products.php'> continue shopping?</a>";
+    //    header("Location: myCart.php");
+}
+
+if ($_GET["action"] == "delete" && !empty($_GET["id"])) {
+    deleteFromCart($_GET["id"]);
+    echo "Do you want to <a href='myCart.php'>check out</a> or ";
+    echo "<a href='products.php'> continue shopping?</a>";
+    //    header("Location: myCart.php");
 }
 
 function addToCart($productId) {
@@ -24,7 +33,6 @@ function addToCart($productId) {
     } else {
         $_SESSION["cart"][$productId]["quantity"]++;
     }
-//    echo $_SESSION["cart"][$productId]["quantity"]."<br>";
 }
 
 function removeFromCart($productId) {
@@ -36,4 +44,18 @@ function removeFromCart($productId) {
             $_SESSION["cart"][$productId]["quantity"]--;
         }
     }
+}
+
+function deleteFromCart($productId) {
+    session_start();
+    unset($_SESSION["cart"][$productId]);
+}
+
+function getBy($att, $value, $array) {
+    foreach ($array as $key => $val) {
+        if ($val[$att] == $value) {
+            return $key;
+        }
+    }
+    return null;
 }

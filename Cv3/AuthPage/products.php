@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_COOKIE["authLoginProfile"])) {
+    header("Location: index.php");
+    exit();
+}
 ob_start();
 
 //$banana = array(
@@ -28,9 +32,6 @@ ob_start();
 //);
 //$catalog = array($banana, $apple, $pepper, $potato);
 
-//if (isset($_SESSION['cart'])) {
-//    $_SESSION['cart'] = '';
-//}
 
 function getBy($att, $value, $array) {
     foreach ($array as $key => $val) {

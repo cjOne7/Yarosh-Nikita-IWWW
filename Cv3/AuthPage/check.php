@@ -1,4 +1,5 @@
 <?php
+session_start();
 $enteredLogin = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 $enteredPassword = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 
@@ -35,6 +36,7 @@ if ($stmt = $connection->prepare($sqlQuery)) {
             setcookie("authRole", $role);
             setcookie("authLogin", $enteredLogin);
             setcookie("authLoginProfile", $enteredLogin);
+            $_SESSION["cart"] = array();
             header("Location: homePage.php");
         }
     }

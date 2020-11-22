@@ -129,23 +129,20 @@ function getBy($att, $value, $array) {
 <div class="cart-quantity">
 ' . ($value["quantity"] * $item["price"]) . '
 </div>
-<a href="/?action=add&id=' . $item["id"] . '" class="cart-button">
+<a href="cartUtil.php?action=add&id=' . $item["id"] . '" class="cart-button">
 +
 </a>
-<a href="/?action=remove&id=' . $item["id"] . '" class="cart-button">
+<a href="cartUtil.php?action=remove&id=' . $item["id"] . '" class="cart-button">
 -
 </a>
-<a href="/?action=delete&id=' . $item["id"] . '" class="cart-button">
+<a href="cartUtil.php?action=delete&id=' . $item["id"] . '" class="cart-button">
 x
 </a>
 </div>
 </div>';
-
         }
     }
-
     echo "<div id='cart-total-price'>Total price: $totalPrice</div>";
-
     ?>
 </body>
 </html>
