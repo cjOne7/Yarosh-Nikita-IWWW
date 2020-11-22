@@ -153,8 +153,8 @@ if ($stmt = $connection->prepare($sqlQuery)) {
     $result = $stmt->get_result();
     while ($row = $result->fetch_assoc()) {
         echo "<div class='item-img'>" . $row["img"] . "</div><div>" . $row["name"] . " " . $row["price"] . "$" . "</div>";
-        echo "<button class='product-btn' onclick=location.href='cartUtil.php?action=add&id=".$row["product_id"]."'>+</button>";
-        echo "<button class='product-btn' onclick=location.href='cartUtil.php?action=remove&id=".$row["product_id"]."'>-</button>";
+        echo "<button class='product-btn' onclick=location.href='cartUtil.php?action=add&product_id=".$row["product_id"]."'>+</button>";
+        echo "<button class='product-btn' onclick=location.href='cartUtil.php?action=remove&product_id=".$row["product_id"]."'>-</button>";
     }
 }
 ?>

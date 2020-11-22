@@ -5,22 +5,22 @@ session_start();
 //    exit();
 //}
 
-if ($_GET["action"] == "add" && !empty($_GET["id"])) {
-    addToCart($_GET["id"]);
+if ($_GET["action"] == "add" && !empty($_GET["product_id"])) {
+    addToCart($_GET["product_id"]);
     echo "Do you want to <a href='myCart.php'>check out</a> or ";
     echo "<a href='products.php'> continue shopping?</a>";
 //    header("Location: myCart.php");
 }
 
-if ($_GET["action"] == "remove" && !empty($_GET["id"])) {
-    removeFromCart($_GET["id"]);
+if ($_GET["action"] == "remove" && !empty($_GET["product_id"])) {
+    removeFromCart($_GET["product_id"]);
     echo "Do you want to <a href='myCart.php'>check out</a> or ";
     echo "<a href='products.php'> continue shopping?</a>";
     //    header("Location: myCart.php");
 }
 
-if ($_GET["action"] == "delete" && !empty($_GET["id"])) {
-    deleteFromCart($_GET["id"]);
+if ($_GET["action"] == "delete" && !empty($_GET["product_id"])) {
+    deleteFromCart($_GET["product_id"]);
     echo "Do you want to <a href='myCart.php'>check out</a> or ";
     echo "<a href='products.php'> continue shopping?</a>";
     //    header("Location: myCart.php");
