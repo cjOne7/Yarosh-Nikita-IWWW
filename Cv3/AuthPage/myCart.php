@@ -67,33 +67,7 @@ if (!isset($_COOKIE["authLoginProfile"])) {
 <body>
 <?php
 include_once "navbar.php";
-//$banana = array(
-//    "id" => 1,
-//    "img" => "&#127820",
-//    "name" => "banana",
-//    "price" => "29",
-//);
-//$apple = array(
-//    "id" => 2,
-//    "img" => "&#127823",
-//    "name" => "apple",
-//    "price" => "39",
-//);
-//$pepper = array(
-//    "id" => 3,
-//    "img" => "&#127817",
-//    "name" => "watermelon",
-//    "price" => "59",
-//);
-//$potato = array(
-//    "id" => 4,
-//    "img" => "&#129364",
-//    "name" => "potato",
-//    "price" => "19",
-//);
 $catalog = array();
-//$catalog = array($banana, $apple, $pepper, $potato);
-//print_r($catalog);
 include_once "connectionToDB.php";
 $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
@@ -104,11 +78,8 @@ if ($stmt = $connection->prepare($sqlQuery)) {
     $stmt->execute();
     $result = $stmt->get_result();
     while ($row = $result->fetch_assoc()) {
-//        print_r($row);
         $catalog[] = $row;
     }
-//    echo "<br><br>";
-//    print_r($catalog);
 }
 function getBy($att, $value, $array) {
     foreach ($array as $key => $val) {
@@ -124,12 +95,10 @@ function getBy($att, $value, $array) {
 <section>
     <h2>Shopping cart</h2>
     <?php
-
     $totalPrice = 0;
     if (isset($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $key => $value) {
             $item = $catalog[getBy("product_id", $key, $catalog)];
-//            print_r($item);
             $totalPrice = $totalPrice + ($value["quantity"] * $item["price"]);
             echo '
 <div class="cart-item">

@@ -28,11 +28,11 @@
                     <a class="nav-link" href="myCart.php">My cart</a>
                 </li>
             </div>
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link" href="complaint.php">Complaint</a>
-                </li>
-            </div>
+<!--            <div>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="complaint.php">Complaint</a>-->
+<!--                </li>-->
+<!--            </div>-->
             <div>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Log out</a>
