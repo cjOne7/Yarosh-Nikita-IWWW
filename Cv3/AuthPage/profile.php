@@ -4,6 +4,11 @@
 <head>
     <?php include_once "head.php" ?>
     <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <?php
@@ -34,5 +39,18 @@ if ($stmt = $connection->prepare($sqlQuery)) {
 
 ?>
 
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Name of product</th>-->
+<!--        <th>Date of purchase</th>-->
+<!--        <th>Quantity</th>-->
+<!--        <th>Price</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!---->
+<!--    </tbody>-->
+<!--</table>-->
 </body>
 </html>

@@ -1,12 +1,12 @@
 <?php
 session_start();
-print_r($_SESSION["cart"]);
-echo "<br>";
+//print_r($_SESSION["cart"]);
+//echo "<br>";
 //foreach ($_SESSION["cart"] as $key => $value) {
 //    echo "Key: " . $key . ", value: " . $value["quantity"] . "<br>";
 //}
-echo "User's login: " . $_COOKIE["authLogin"] . "<br>";
-echo "Total price: " . $_SESSION["total_price"] . "<br>";
+//echo "User's login: " . $_COOKIE["authLogin"] . "<br>";
+//echo "Total price: " . $_SESSION["total_price"] . "<br>";
 
 include_once "connectionToDB.php";
 $connection = ConnectionToDB::getConnection();
@@ -30,16 +30,17 @@ if ($stmt = $connection->prepare($sqlQuery)) {
         $stmt->close();
     }
 
-    $sqlQuery = "SELECT MAX(order_id) FROM learningphpdb.orders";
+    $sqlQuery = 'SELECT MAX(`order_id`) FROM learningphpdb.orders';
     if ($stmt = $connection->prepare($sqlQuery)) {
         $stmt->execute();
-        echo "Last order id: " . $stmt->insert_id . "<br>";
+//        echo "Last order id: " . $stmt->insert_id . "<br>";
         $result = $stmt->get_result()->fetch_assoc();
         $stmt->close();
-        $order_order_id = $result["order_id"];
-        echo $order_order_id . "<br>";
+//        print_r($result);
+        $order_order_id = $result["MAX(`order_id`)"];
+//        echo $order_order_id . "<br>";
         foreach ($_SESSION["cart"] as $key => $value) {
-            echo "Key: " . $key . ", value: " . $value["quantity"] . "<br>";
+//            echo "Key: " . $key . ", value: " . $value["quantity"] . "<br>";
             $sqlQuery = "INSERT INTO learningphpdb.order_product (order_order_id, product_product_id, quantity) VALUES (?, ?, ?)";
             if ($stmt = $connection->prepare($sqlQuery)) {
                 $stmt->bind_param("iii", $order_order_id, $product_product_id, $quantity);
@@ -47,6 +48,7 @@ if ($stmt = $connection->prepare($sqlQuery)) {
                 $quantity = $value["quantity"];
                 $stmt->execute();
                 $stmt->close();
+                header("Location: profile.php");
             }
         }
     }
