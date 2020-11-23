@@ -134,6 +134,7 @@ x
     if ($totalPrice == 0) {
         echo "<p>Ups... You have an empty cart. Visit our <a href='products.php'>product page</a> to fill it ;)</p>";
     } else {
+        $_SESSION["total_price"] = $totalPrice;
         echo "<div id='cart-total-price'>Total price: $totalPrice</div>";
         echo "<button onclick=location.href='checkout.php'>Pay</button>";
     }
