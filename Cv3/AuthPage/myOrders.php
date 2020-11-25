@@ -1,15 +1,14 @@
-<?php
-session_start();
-if (!isset($_COOKIE["authLoginProfile"])) {
-    header("Location: index.php");
-    exit();
-}
-?>
+<?php include_once "checkIfLogIn.php" ?>
 <!doctype html>
 <html lang="en">
 <head>
     <?php include_once "head.php" ?>
     <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <?php include_once "navbar.php" ?>
@@ -20,7 +19,7 @@ if (!isset($_COOKIE["authLoginProfile"])) {
         <th>Product name</th>
         <th>Date of purchase</th>
         <th>Quantity</th>
-        <!--        <th>Paid</th>-->
+        <!--        <th>Price for one</th>-->
         <!--        TODO add to DB column with price of each product-->
     </tr>
     </thead>

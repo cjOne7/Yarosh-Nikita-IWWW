@@ -61,20 +61,6 @@
 <body>
 <?php
 include_once "navbar.php";
-$catalog = array();
-include_once "connectionToDB.php";
-$connection = ConnectionToDB::getConnection();
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-}
-$sqlQuery = "SELECT * FROM learningphpdb.products";
-if ($stmt = $connection->prepare($sqlQuery)) {
-    $stmt->execute();
-    $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()) {
-        $catalog[] = $row;
-    }
-}
 function getBy($att, $value, $array) {
     foreach ($array as $key => $val) {
         if ($val[$att] == $value) {
@@ -89,11 +75,13 @@ function getBy($att, $value, $array) {
 <section>
     <h2>Shopping cart</h2>
     <?php
-//    print_r($GLOBALS["catalog"]["0"]);
+    //TODO ADD CART VALUES AFTER LOGGING IN OR DELETE ALL RECORDS AFTER LOGGING OUT
+
+    //    print_r($GLOBALS["catalog"]["0"]);
     $totalPrice = 0;
     if (isset($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $key => $value) {
-            $item = $catalog[getBy("product_id", $key, $catalog)];
+            $item = $_SESSION["catalog"][getBy("product_id", $key, $_SESSION["catalog"])];
 //            print_r($item);
             $totalPrice = $totalPrice + ($value["quantity"] * $item["price"]);
             echo '
@@ -131,8 +119,7 @@ x
         echo "<p>Ups... You have an empty cart. Visit our <a href='products.php'>product page</a> to fill it ;)</p>";
     } else {
         $_SESSION["total_price"] = $totalPrice;
-        echo "<div id='cart-total-price'>Total price: $totalPrice</div>";
-        echo "<button onclick=location.href='checkout.php'>Pay</button>";
+        echo "<div id='cart-total-price'>Total price: $totalPrice</div><button onclick=location.href='checkout.php'>Pay</button>";
     }
     ?>
 </body>

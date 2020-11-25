@@ -12,3 +12,5 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
     }
 }
 header('Location: index.php');
+
+//TODO ADD CART VALUES AFTER LOGGING IN OR DELETE ALL RECORDS AFTER LOGGING OUT

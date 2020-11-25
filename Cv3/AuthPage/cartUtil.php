@@ -37,11 +37,12 @@ function addToDBCart($productId, $quantity) {
     if ($connection->connect_error) {
         die("Connection failed: " . $connection->connect_error);
     }
-    $sqlQuery = "INSERT INTO learningphpdb.cart (user_user_id, product_product_id, quantity) VALUES (?, ?, ?)";
+    $sqlQuery = "INSERT INTO learningphpdb.cart (user_user_id, product_product_id, quantity, reserved_price_for_one) VALUES (?, ?, ?, ?)";
     if ($stmt = $connection->prepare($sqlQuery)) {
-        $stmt->bind_param("iii", $user_user_id, $product_product_id, $quantity);
+        $stmt->bind_param("iiii", $user_user_id, $product_product_id, $quantity, $reserved_price_for_one);
         $product_product_id = $productId;
         $user_user_id = $_COOKIE["authProfileId"];
+        $reserved_price_for_one = $_SESSION["catalog"][$productId - 1]["price"];
         $stmt->execute();
     }
 }
