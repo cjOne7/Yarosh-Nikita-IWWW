@@ -14,46 +14,41 @@ $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-$sqlQuery = "SELECT user_id FROM learningphpdb.users WHERE login LIKE ?";
+
+$user_id = $_COOKIE["authProfileId"];
+$sqlQuery = "INSERT INTO learningphpdb.orders (date_of_order, total_price, user_user_id) VALUES (SYSDATE(), ?, ?)";
 if ($stmt = $connection->prepare($sqlQuery)) {
-    $stmt->bind_param("s", $login);
-    $login = $_COOKIE["authLoginProfile"];
+    $stmt->bind_param("ii", $total_price, $user_id);
+    $total_price = $_SESSION["total_price"];
     $stmt->execute();
-    $result = $stmt->get_result()->fetch_assoc();
-    $user_id = $result["user_id"];
+}
 
-    $sqlQuery = "INSERT INTO learningphpdb.orders (date_of_order, total_price, user_user_id) VALUES (SYSDATE(), ?, ?)";
-    if ($stmt = $connection->prepare($sqlQuery)) {
-        $stmt->bind_param("ii", $total_price, $user_id);
-        $total_price = $_SESSION["total_price"];
-        $stmt->execute();
-    }
-
-    $sqlQuery = "SELECT MAX(`order_id`) FROM learningphpdb.orders";
-    if ($stmt = $connection->prepare($sqlQuery)) {
-        $stmt->execute();
-
+$sqlQuery = "SELECT MAX(`order_id`) FROM learningphpdb.orders";
+if ($stmt = $connection->prepare($sqlQuery)) {
+    $stmt->execute();
 //        echo "Last order id: " . $stmt->insert_id . "<br>";
-        $result = $stmt->get_result()->fetch_assoc();
+    $result = $stmt->get_result()->fetch_assoc();
 //        print_r($result);
-        $order_order_id = $result["MAX(`order_id`)"];
+    $order_order_id = $result["MAX(`order_id`)"];
 //        echo $order_order_id . "<br>";
-
-        foreach ($_SESSION["cart"] as $key => $value) {
+    foreach ($_SESSION["cart"] as $key => $value) {
 //            echo "Key: " . $key . ", value: " . $value["quantity"] . "<br>";
-            $sqlQuery = "INSERT INTO learningphpdb.order_product (order_order_id, product_product_id, quantity) VALUES (?, ?, ?)";
-//          TODO correct sql query
+        $sqlQuery = "INSERT INTO learningphpdb.order_product (order_order_id, product_product_id, quantity, purchased_price) VALUES (?, ?, ?, ?)";
+        if ($stmt = $connection->prepare($sqlQuery)) {
+            $stmt->bind_param("iiii", $order_order_id, $product_product_id, $quantity, $purchased_price);
+            $product_product_id = $key;
+            $quantity = $value["quantity"];
+            $purchased_price = $_SESSION["catalog"][$key - 1]["price"];
+            $stmt->execute();
+            $_SESSION["cart"] = array();
+
+            $sqlQuery = "DELETE FROM learningphpdb.cart WHERE user_user_id = ?";
             if ($stmt = $connection->prepare($sqlQuery)) {
-                $stmt->bind_param("iii", $order_order_id, $product_product_id, $quantity);
-                $product_product_id = $key;
-                $quantity = $value["quantity"];
+                $stmt->bind_param("i", $user_id);
                 $stmt->execute();
                 $stmt->close();
-                $_SESSION["cart"] = array();
-                header("Location: myOrders.php");
             }
+            header("Location: myOrders.php");
         }
     }
 }
-
-

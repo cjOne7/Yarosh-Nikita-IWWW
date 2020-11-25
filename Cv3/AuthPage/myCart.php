@@ -75,9 +75,6 @@ function getBy($att, $value, $array) {
 <section>
     <h2>Shopping cart</h2>
     <?php
-    //TODO ADD CART VALUES AFTER LOGGING IN OR DELETE ALL RECORDS AFTER LOGGING OUT
-
-    //    print_r($GLOBALS["catalog"]["0"]);
     $totalPrice = 0;
     if (isset($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $key => $value) {

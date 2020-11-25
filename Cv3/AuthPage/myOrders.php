@@ -16,11 +16,11 @@
 <table>
     <thead>
     <tr>
+        <th>Order number</th>
         <th>Product name</th>
         <th>Date of purchase</th>
         <th>Quantity</th>
-        <!--        <th>Price for one</th>-->
-        <!--        TODO add to DB column with price of each product-->
+        <th>Price for one</th>
     </tr>
     </thead>
     <tbody>
@@ -30,29 +30,17 @@
     if ($connection->connect_error) {
         die("Connection failed: " . $connection->connect_error);
     }
-    $sqlQuery = "SELECT * FROM learningphpdb.orders WHERE user_user_id 
-                                                    IN (SELECT user_id FROM learningphpdb.users WHERE login LIKE ?)";
+    $sqlQuery = "SELECT name, purchased_price, quantity, date_of_order, user_user_id, order_id FROM learningphpdb.products
+         RIGHT OUTER JOIN learningphpdb.order_product ON products.product_id = order_product.product_product_id
+         RIGHT OUTER JOIN learningphpdb.orders ON order_product.order_order_id = orders.order_id WHERE user_user_id = ?";
     if ($stmt = $connection->prepare($sqlQuery)) {
-        $stmt->bind_param("s", $login);
-        $login = $_COOKIE["authLoginProfile"];
+        $stmt->bind_param("i", $user_id);
+        $user_id = $_COOKIE["authProfileId"];
         $stmt->execute();
-        $orderResult = $stmt->get_result();
-        while ($orderRow = $orderResult->fetch_assoc()) {
-            echo "<br>";
-            print_r($orderRow);
-            $sqlQuery = "SELECT name FROM learningphpdb.products WHERE product_id
-                                               IN (SELECT product_product_id FROM learningphpdb.order_product WHERE order_order_id = ?)";
-            if ($stmt = $connection->prepare($sqlQuery)) {
-                $stmt->bind_param("i", $order_id);
-                $order_id = $orderRow["order_id"];
-                $stmt->execute();
-                $result = $stmt->get_result();
-                echo "<br>";
-                while ($row = $result->fetch_assoc()) {
-                    print_r($row);
-//                    echo "<tr><td>Product name</td></tr>";
-                }
-            }
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr><td>" . $row["order_id"] . " </td><td> " . $row["name"] . " </td><td> " . $row["date_of_order"] . " </td>
+<td> " . $row["quantity"] . " </td><td> " . $row["purchased_price"] . " </td></tr>";
         }
     }
     ?>
