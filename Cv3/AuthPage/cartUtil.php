@@ -1,9 +1,9 @@
 <?php
 session_start();
-//if (!isset($_COOKIE["authLoginProfile"])) {
-//    header("Location: index.php");
-//    exit();
-//}
+if (!isset($_COOKIE["authLoginProfile"])) {
+    header("Location: index.php");
+    exit();
+}
 
 if ($_GET["action"] == "add" && !empty($_GET["product_id"])) {
     addToCart($_GET["product_id"]);
@@ -28,8 +28,19 @@ if ($_GET["action"] == "delete" && !empty($_GET["product_id"])) {
 
 function addToCart($productId) {
     session_start();
+    include_once "connectionToDB.php";
+    $connection = ConnectionToDB::getConnection();
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
     if (!array_key_exists($productId, $_SESSION["cart"])) {
         $_SESSION["cart"][$productId]["quantity"] = 1;
+        $sqlQuery = "INSERT INTO learningphpdb.cart (user_user_id, product_product_id, quantity) VALUES (?, ?, ?)";
+        if ($stmt = $connection->prepare($sqlQuery)) {
+            $stmt->bind_param("iii", $user_id, $product_id, $quantity);
+
+            $stmt->execute();
+        }
     } else {
         $_SESSION["cart"][$productId]["quantity"]++;
     }
@@ -49,13 +60,4 @@ function removeFromCart($productId) {
 function deleteFromCart($productId) {
     session_start();
     unset($_SESSION["cart"][$productId]);
-}
-
-function getBy($att, $value, $array) {
-    foreach ($array as $key => $val) {
-        if ($val[$att] == $value) {
-            return $key;
-        }
-    }
-    return null;
 }

@@ -8,24 +8,25 @@ $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-$sqlQuery = "SELECT login, password, role FROM learningphpdb.users WHERE login LIKE ?";
+$sqlQuery = "SELECT * FROM learningphpdb.users WHERE login LIKE ?";
 if ($stmt = $connection->prepare($sqlQuery)) {
     $stmt->bind_param("s", $enteredLogin);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();
     $hashPwd = $result["password"];
     $role = $result["role"];
-    if (isset($hashPwd)) {
-        if (password_verify($enteredPassword, $hashPwd)) {
-            setcookie("authRole", $role);
-            setcookie("authLogin", $enteredLogin);
-            setcookie("authLoginProfile", $enteredLogin);
-            $_SESSION["cart"] = array();
-            header("Location: homePage.php");
-        } else {
-            header('HTTP/1.1 307 Temporary Redirect');
-            header("Location: index.php?error=wrong_auth_data");
-        }
+    $userId = $result["user_id"];
+    if (isset($hashPwd) || password_verify($enteredPassword, $hashPwd)) {
+        setcookie("authRole", $role);
+        setcookie("authLogin", $enteredLogin);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        setcookie("authLoginProfile", $enteredLogin);
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        setcookie("authProfileId", $userId);
+        $_SESSION["cart"] = array();
+        header("Location: homePage.php");
     } else {
         header('HTTP/1.1 307 Temporary Redirect');
         header("Location: index.php?error=wrong_auth_data");

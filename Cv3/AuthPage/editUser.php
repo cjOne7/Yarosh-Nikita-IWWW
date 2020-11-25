@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php include_once "checkIfLogIn.php" ?>
 <!doctype html>
 <html lang="en">
 <head>

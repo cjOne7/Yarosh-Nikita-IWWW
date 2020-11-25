@@ -28,6 +28,11 @@
                     <a class="nav-link" href="myCart.php">My cart</a>
                 </li>
             </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link" href="myOrders.php">My orders</a>
+                </li>
+            </div>
 <!--            <div>-->
 <!--                <li class="nav-item">-->
 <!--                    <a class="nav-link" href="complaint.php">Complaint</a>-->

@@ -3,8 +3,6 @@ session_start();
 $enteredLogin = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 $enteredPassword = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 
-//echo $enteredLogin . "<br>" . $enteredPassword . "<br>" . $_SESSION["editedUserId"] . "<br>";
-
 include_once "connectionToDB.php";
 $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
@@ -17,21 +15,21 @@ if ($stmt = $connection->prepare($sqlQuerySelect)) {
     $user_id = $_SESSION["editedUserId"];
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();
-//    echo $result["login"]. "<br>" . $result["password"] . "<br>";
 
     $sqlQueryUpdate = "UPDATE learningphpdb.users SET login = ?, password = ? WHERE user_id = ?";
 
     if ($stmt = $connection->prepare($sqlQueryUpdate)) {
         $stmt->bind_param("ssi", $enteredLogin, $enteredPassword, $user_id);
         if (mb_strlen($enteredLogin, "UTF-8") < 3) {
-            $enteredLogin = $result["login"];
+//            $enteredLogin = $result["login"];
+            $user_id = $result["user_id"];
         } else {
 //            setcookie("authLogin", $enteredLogin);
 //            echo $result["login"] . "<br>" . $_COOKIE["authLogin"] . "<br>";
             if ($result["login"] == $_COOKIE["authLogin"]) {
-                setcookie("authLoginProfile", $enteredLogin);
+                setcookie("authProfileId", $user_id);
             } else {
-                setcookie("authLogin", $enteredLogin);
+                setcookie("authLogin", $user_id);
             }
         }
         if (mb_strlen($enteredPassword, "UTF-8") < 8) {

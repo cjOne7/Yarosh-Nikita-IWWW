@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php include_once "checkIfLogIn.php" ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +14,7 @@
         <th>Edit</th>
     </tr>
     </thead>
+    <tbody>
     <?php
     include_once "navbar.php";
     include_once "connectionToDB.php";
@@ -36,7 +37,6 @@
         }
     }
     ?>
-    <tbody>
     </tbody>
 </table>
 <style>

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include_once "checkIfLogIn.php" ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,10 +19,10 @@ $connection = ConnectionToDB::getConnection();
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-$login = $_COOKIE["authLoginProfile"];
-$sqlQuery = "SELECT * FROM learningphpdb.users WHERE login LIKE ?";
+$user_id = $_COOKIE["authProfileId"];
+$sqlQuery = "SELECT * FROM learningphpdb.users WHERE user_id = ?";
 if ($stmt = $connection->prepare($sqlQuery)) {
-    $stmt->bind_param("s", $login);
+    $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();
     if (isset($result)) {
@@ -36,21 +36,6 @@ if ($stmt = $connection->prepare($sqlQuery)) {
         echo "<button name='editBtn' onclick=location.href='editUser.php?user_id=" . $result["user_id"] . "'>Edit</button><br><br>";
     }
 }
-
 ?>
-
-<!--<table>-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>Name of product</th>-->
-<!--        <th>Date of purchase</th>-->
-<!--        <th>Quantity</th>-->
-<!--        <th>Price</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!---->
-<!--    </tbody>-->
-<!--</table>-->
 </body>
 </html>

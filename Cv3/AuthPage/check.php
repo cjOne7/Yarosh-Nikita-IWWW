@@ -35,9 +35,19 @@ if ($stmt = $connection->prepare($sqlQuery)) {
             $stmt->close();
             setcookie("authRole", $role);
             setcookie("authLogin", $enteredLogin);
+
             setcookie("authLoginProfile", $enteredLogin);
+
             $_SESSION["cart"] = array();
-            header("Location: homePage.php");
+
+            $sqlQuery = "SELECT MAX(user_id) FROM learningphpdb.users";
+            if ($stmt = $connection->prepare($sqlQuery)) {
+                $stmt->execute();
+                $result = $stmt->get_result()->fetch_assoc();
+                $curRegUserId = $result["MAX(user_id)"];
+                setcookie("authProfileId", $curRegUserId);
+                header("Location: homePage.php");
+            }
         }
     }
 } else {
