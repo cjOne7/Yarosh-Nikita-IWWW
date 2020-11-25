@@ -1,10 +1,4 @@
-<?php
-session_start();
-if (!isset($_COOKIE["authLoginProfile"])) {
-    header("Location: index.php");
-    exit();
-}
-?>
+<?php include_once "checkIfLogIn.php" ?>
 <!doctype html>
 <html lang="en">
 <head>

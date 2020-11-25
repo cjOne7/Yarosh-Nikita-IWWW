@@ -4,6 +4,11 @@
 <head>
     <?php include_once "head.php" ?>
     <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <table>
@@ -39,10 +44,5 @@
     ?>
     </tbody>
 </table>
-<style>
-    table, th, td {
-        border: 1px solid black;
-    }
-</style>
 </body>
 </html>
