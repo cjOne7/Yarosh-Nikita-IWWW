@@ -2,301 +2,301 @@
 @import "navbar_style";
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing : border-box;
+  margin     : 0;
+  padding    : 0;
 }
 
 body {
-    font-family: "Century Gothic", sans-serif;
-    line-height: 1.5;
+  font-family : "Century Gothic", sans-serif;
+  line-height : 1.5;
 }
 
 h1 {
-    font-weight: 300;
-    font-size: 60px;
-    line-height: 1.2;
-    margin-bottom: 15px;
+  font-weight   : 300;
+  font-size     : 60px;
+  line-height   : 1.2;
+  margin-bottom : 15px;
 }
 
 .showcase {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-    color: #fff;
+  position       : relative;
+  height         : 100vh;
+  display        : flex;
+  flex-direction : column;
+  padding        : 0 20px;
+  color          : #fff;
 
 }
 
 .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position : absolute;
+  top      : 0;
+  left     : 0;
+  width    : 100%;
+  height   : 100%;
+  overflow : hidden;
 
-    video {
-        min-width: 100%;
-        min-height: 100%;
-        //object-fit: cover как будет "прикрывать шторкой видео во время изменения"
-        //размеров окна, иными словами обрезать
-        object-fit: cover;
-        //но чтобы видео маштабировалось под размеры окна, стоит поместить его в центр
-        //с помощью абсолютных координат
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        //но тогда оно будет съехавшее, поэтому с помощью перемещения вернём на место
-        transform: translate(-50%, -50%);
-    }
+  video {
+	min-width  : 100%;
+	min-height : 100%;
+	//object-fit: cover как будет "прикрывать шторкой видео во время изменения"
+	//размеров окна, иными словами обрезать
+	object-fit : cover;
+	//но чтобы видео маштабировалось под размеры окна, стоит поместить его в центр
+	//с помощью абсолютных координат
+	position   : absolute;
+	top        : 50%;
+	left       : 50%;
+	//но тогда оно будет съехавшее, поэтому с помощью перемещения вернём на место
+	transform  : translate(-50%, -50%);
+  }
 
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        opacity: 0.5;
-    }
+  &:after {
+	content          : '';
+	position         : absolute;
+	top              : 0;
+	left             : 0;
+	width            : 100%;
+	height           : 100%;
+	background-color : black;
+	opacity          : 0.5;
+  }
 }
 
 .btn {
-    padding: 0.625rem 1.875rem;
-    background-color: rgb(51, 43, 43);
-    color: whitesmoke;
-    border-radius: 0.3125rem;
-    border: 1px solid #fff;
-    z-index: 10;
-    width: 15%;
-    margin: 2.8125rem auto 0 auto;
+  padding          : 0.625rem 1.875rem;
+  background-color : rgb(51, 43, 43);
+  color            : whitesmoke;
+  border-radius    : 0.3125rem;
+  border           : 1px solid #fff;
+  z-index          : 10;
+  width            : 15%;
+  margin           : 2.8125rem auto 0 auto;
 
-    .link-about {
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
+  .link-about {
+	display         : flex;
+	justify-content : center;
+	align-items     : baseline;
 
-        a {
-            text-decoration: none;
-            color: whitesmoke;
-        }
-    }
+	a {
+	  text-decoration : none;
+	  color           : whitesmoke;
+	}
+  }
 
-    &:hover {
-        color: whitesmoke;
-        transition: 1s;
-        transform: scale(0.97);
-        outline: none;
-    }
+  &:hover {
+	color      : whitesmoke;
+	transition : 1s;
+	transform  : scale(0.97);
+	outline    : none;
+  }
 
 }
 
 #about {
-    padding: 40px;
-    text-align: center;
-    scroll-behavior: smooth;
+  padding         : 40px;
+  text-align      : center;
+  scroll-behavior : smooth;
 
-    p {
-        font-size: 1.2rem;
-        max-width: 600px;
-        margin: auto;
-    }
+  p {
+	font-size : 1.2rem;
+	max-width : 600px;
+	margin    : auto;
+  }
 
-    h2 {
-        margin: 30px 0;
-        color: yellow;
-    }
+  h2 {
+	margin : 30px 0;
+	color  : yellow;
+  }
 }
 
 .dws-wrapper {
-    display: flex;
-    justify-content: center; //выравнивание по горизонтали
-    align-items: center; //выравнивание по вертикали
-    height: 80vh; //высота экрана
+  display         : flex;
+  justify-content : center; //выравнивание по горизонтали
+  align-items     : center; //выравнивание по вертикали
+  height          : 80vh; //высота экрана
 }
 
 .container-image {
-    width: 1200px;
-    height: 500px;
-    display: flex;
-    border: 1px solid turquoise;
-}
-
-.img-content {
-    color: beige;
-    background-color: #000;
-    opacity: 0.7;
-    text-align: justify;
-    width: 70%;
-    margin: auto;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    -webkit-transform: translateY(120%);
-    -moz-transform: translateY(120%);
-    -ms-transform: translateY(120%);
-    transform: translateY(120%);
-    transition: 1s;
-
-    h2 {
-        text-transform: uppercase;
-    }
-
-    p {
-        margin: 0;
-    }
+  width   : 1200px;
+  height  : 500px;
+  display : flex;
+  border  : 1px solid turquoise;
 }
 
 .img-box {
-    flex-grow: 1; // разделение между элементами всё пространство контейнера поровно
-    background-size: 750px 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: 1s;
-    filter: grayscale(1); // фильтр для наложения чёрно-белого эффекта
-    opacity: 0.8;
-    position: relative;
-    overflow: hidden; //скроет, если выходит за рамки блока img-box
+  flex-grow           : 1; // разделение между элементами всё пространство контейнера поровно
+  background-size     : 750px 500px;
+  background-position : center;
+  background-repeat   : no-repeat;
+  transition          : 1s;
+  filter              : grayscale(1); // фильтр для наложения чёрно-белого эффекта
+  opacity             : 0.8;
+  position            : relative;
+  overflow            : hidden; //скроет, если выходит за рамки блока img-box
 
-    &:hover {
-        background-size: 900px 600px;
-        flex-grow: 5;
-        filter: grayscale(0);
-        opacity: 1;
+  &:hover {
+	background-size : 900px 600px;
+	flex-grow       : 5;
+	filter          : grayscale(0);
+	opacity         : 1;
 
-        .bor-left-right::after {
-            @include transitionForBorders();
-            transform: translateY(-100%);
-        }
+	.bor-left-right::after {
+	  @include transitionForBorders();
+	  transform : translateY(-100%);
+	}
 
-        .bor-top-bottom::after {
-            @include transitionForBorders();
-            transform: translateX(-100%);
-        }
+	.bor-top-bottom::after {
+	  @include transitionForBorders();
+	  transform : translateX(-100%);
+	}
 
-        .bor-left-right::before {
-            @include transitionForBorders();
-            transform: translateY(100%);
-        }
+	.bor-left-right::before {
+	  @include transitionForBorders();
+	  transform : translateY(100%);
+	}
 
-        .bor-top-bottom::before {
-            @include transitionForBorders();
-            transform: translateX(100%);
-        }
+	.bor-top-bottom::before {
+	  @include transitionForBorders();
+	  transform : translateX(100%);
+	}
 
-        .img-content {
-            transform: translateY(-10%);
-            transition-delay: 1s;
-        }
-    }
+	.img-content {
+	  transform        : translateY(-10%);
+	  transition-delay : 1s;
+	}
+  }
+}
+
+.img-content {
+  color             : beige;
+  background-color  : #000;
+  opacity           : 0.7;
+  text-align        : justify;
+  width             : 70%;
+  margin            : auto;
+  position          : absolute;
+  bottom            : 10px;
+  right             : 10px;
+  box-sizing        : border-box;
+  padding           : 10px 15px;
+  -webkit-transform : translateY(120%);
+  -moz-transform    : translateY(120%);
+  -ms-transform     : translateY(120%);
+  transform         : translateY(120%);
+  transition        : 1s;
+
+  h2 {
+	text-transform : uppercase;
+  }
+
+  p {
+	margin : 0;
+  }
 }
 
 .bor-left-right::before {
-    @include pseudoBorderPropertes();
-    @include sizes(1px, 100%);
-    @include location-top-left(0, 10px);
+  @include pseudoBorderPropertes();
+  @include sizes(1px, 100%);
+  @include location-top-left(0, 10px);
 }
 
 .bor-top-bottom::before {
-    @include pseudoBorderPropertes();
-    @include sizes(100%, 1px);
-    @include location-top-left(10px, 0);
+  @include pseudoBorderPropertes();
+  @include sizes(100%, 1px);
+  @include location-top-left(10px, 0);
 }
 
 .bor-left-right::after {
-    @include pseudoBorderPropertes();
-    @include sizes(1px, 100%);
-    @include location-bottom-right(0, 10px);
+  @include pseudoBorderPropertes();
+  @include sizes(1px, 100%);
+  @include location-bottom-right(0, 10px);
 }
 
 .bor-top-bottom::after {
-    @include pseudoBorderPropertes();
-    @include sizes(100%, 1px);
-    @include location-bottom-right(10px, 0);
+  @include pseudoBorderPropertes();
+  @include sizes(100%, 1px);
+  @include location-bottom-right(10px, 0);
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 12;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+  display          : none;
+  position         : fixed;
+  z-index          : 12;
+  padding-top      : 100px;
+  left             : 0;
+  top              : 0;
+  width            : 100%;
+  height           : 100%;
+  overflow         : auto;
+  background-color : rgba(0, 0, 0, 0.9);
 }
 
 /* Modal Content (Image) */
 .modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
+  margin    : auto;
+  display   : block;
+  width     : 80%;
+  max-width : 700px;
 }
 
 /* Add Animation - Zoom in the Modal */
 .modal-content {
-    animation-name: zoom;
-    animation-duration: 0.6s;
+  animation-name     : zoom;
+  animation-duration : 0.6s;
 }
 
 @keyframes zoom {
-    from {
-        transform: scale(0)
-    }
+  from {
+	transform : scale(0)
+  }
 
-    to {
-        transform: scale(1)
-    }
+  to {
+	transform : scale(1)
+  }
 }
 
 /* The Close Button */
 .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
+  position    : absolute;
+  top         : 15px;
+  right       : 35px;
+  color       : #f1f1f1;
+  font-size   : 40px;
+  font-weight : bold;
+  transition  : 0.3s;
 }
 
 .close:hover,
 .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+  color           : #bbb;
+  text-decoration : none;
+  cursor          : pointer;
 }
 
 
 @media only screen and (max-width : 1045px) {
-    .btn {
-        min-width: 150px;
-        margin-top: 20px;
-        padding: 10px 30px;
-        white-space: nowrap;
-        transition: none;
-    }
+  .btn {
+	min-width   : 150px;
+	margin-top  : 20px;
+	padding     : 10px 30px;
+	white-space : nowrap;
+	transition  : none;
+  }
 }
 
 @media only screen and (max-width : 576px) {
-    @include navbar-item-underline-576px;
+  @include navbar-item-underline-576px;
 
-    .btn {
-        margin-top: 15px;
-        width: 100px;
-        white-space: nowrap;
-        transition: none;
-    }
+  .btn {
+	margin-top  : 15px;
+	width       : 100px;
+	white-space : nowrap;
+	transition  : none;
+  }
 
-    .modal-content {
-        width: 100%;
-    }
+  .modal-content {
+	width : 100%;
+  }
 }
